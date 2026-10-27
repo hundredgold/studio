@@ -37,12 +37,16 @@
   @media(max-width:640px){.head-tel{display:none}}
 
   .hero{padding:64px 0 60px;background:linear-gradient(180deg,var(--bg-2),var(--bg));border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-  /* плавающие зубы (Rare UI / Orbs приём) */
-  .float{position:absolute;border-radius:22px;background:linear-gradient(145deg,#fff,#E8F4EF);box-shadow:0 14px 40px rgba(14,124,102,.16);pointer-events:none;animation:drift 9s ease-in-out infinite}
-  .float::before,.float::after{content:"";position:absolute;bottom:0;width:38%;height:38%;border-radius:100% 0 0 0;background:inherit}
-  .float::after{right:0;border-radius:0 0 100% 0}
-  @keyframes drift{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-18px) rotate(5deg)}}
-  @media(prefers-reduced-motion:reduce){.float{animation:none}}
+  /* челюсть-стикер в герое */
+  .jaw{position:absolute;right:6%;top:13%;width:230px;height:230px;border-radius:46px;
+       background:linear-gradient(145deg,#ffffff,#E3F2EC);box-shadow:0 22px 55px rgba(14,124,102,.24);
+       display:grid;place-items:center;pointer-events:none;animation:drift 9s ease-in-out infinite}
+  .jaw svg{width:88%;height:88%}
+  .jaw .spark{animation:twinkle 2.4s ease-in-out infinite}
+  @keyframes twinkle{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+  @keyframes drift{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-16px) rotate(5deg)}}
+  @media(max-width:760px){.jaw{width:92px;height:92px;right:2%;top:2%;border-radius:22px}h1{padding-right:100px}}
+  @media(prefers-reduced-motion:reduce){.jaw{animation:none}.jaw .spark{animation:none}}
   .kick{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
   h1{font-weight:800;font-size:clamp(32px,5.6vw,54px);line-height:1.12;max-width:700px}
   h1 span{color:var(--teal)}
@@ -137,9 +141,38 @@
 <main id="top">
 
   <section class="hero">
-    <div class="float" style="width:52px;height:62px;right:8%;top:22%;animation-delay:0s"></div>
-    <div class="float" style="width:34px;height:40px;right:22%;top:62%;animation-delay:-3s;opacity:.7"></div>
-    <div class="float" style="width:26px;height:32px;right:4%;top:70%;animation-delay:-6s;opacity:.5"></div>
+    <div class="jaw" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <!-- губы -->
+        <path d="M6 72 Q100 44 194 72 Q188 154 100 182 Q12 154 6 72 Z" fill="#F2B5A9"/>
+        <!-- рот -->
+        <path d="M18 74 Q100 50 182 74 Q176 148 100 170 Q24 148 18 74 Z" fill="#0A5F4F"/>
+        <defs>
+          <clipPath id="mouth">
+            <path d="M18 74 Q100 50 182 74 Q176 148 100 170 Q24 148 18 74 Z"/>
+          </clipPath>
+        </defs>
+        <g clip-path="url(#mouth)">
+          <!-- язык (за нижними зубами) -->
+          <ellipse cx="100" cy="142" rx="46" ry="26" fill="#E8837B"/>
+          <!-- верхний ряд -->
+          <rect x="20"  y="58" width="32" height="52" rx="10" fill="#FFFFFF"/>
+          <rect x="56"  y="54" width="32" height="56" rx="10" fill="#FFFFFF"/>
+          <rect x="92"  y="52" width="32" height="58" rx="10" fill="#FFFFFF"/>
+          <rect x="128" y="54" width="32" height="56" rx="10" fill="#FFFFFF"/>
+          <rect x="164" y="58" width="32" height="52" rx="10" fill="#FFFFFF"/>
+          <!-- нижний ряд -->
+          <rect x="28"  y="118" width="30" height="56" rx="10" fill="#F4F9F7"/>
+          <rect x="62"  y="122" width="30" height="58" rx="10" fill="#F4F9F7"/>
+          <rect x="96"  y="124" width="30" height="60" rx="10" fill="#F4F9F7"/>
+          <rect x="130" y="122" width="30" height="58" rx="10" fill="#F4F9F7"/>
+          <rect x="164" y="118" width="30" height="56" rx="10" fill="#F4F9F7"/>
+        </g>
+        <!-- блик -->
+        <path d="M158 20 l4.5 11 11 4.5 -11 4.5 -4.5 11 -4.5 -11 -11 -4.5 11 -4.5 Z" fill="#F5A623" class="spark"/>
+        <path d="M28 168 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 Z" fill="#F5A623" class="spark" style="animation-delay:-1.2s"/>
+      </svg>
+    </div>
     <div class="wrap">
       <div class="kick">Стоматология · ваш город</div>
       <h1>Лечим так, что <span>не страшно возвращаться</span></h1>
