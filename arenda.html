@@ -202,7 +202,7 @@
         <div class="step"><span class="n">3</span><b>Заезжаете</b><span>Код замка и инструкция приходят в чат. Никаких бумажек.</span></div>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
-        <a class="cta" style="font-size:15px;padding:15px 28px" href="https://t.me/username" target="_blank" rel="noopener">Написать в Telegram</a>
+        <a class="cta" style="font-size:15px;padding:15px 28px" href="#bron" id="bookCta">Забронировать</a>
         <a class="book" style="font-size:15px;padding:15px 24px" href="tel:+79000000000">☎ +7 900 000-00-00</a>
       </div>
     </div>
@@ -226,6 +226,10 @@
   function show(m){ toast.textContent = m; toast.classList.add('show'); clearTimeout(t); t = setTimeout(function(){ toast.classList.remove('show'); }, 4200); }
   document.getElementById('goBtn').addEventListener('click', function(){
     show('📅 В готовом сайте здесь — живые даты из RealtyCalendar и свободные квартиры на ваш период');
+  });
+  document.getElementById('bookCta').addEventListener('click', function(e){
+    e.preventDefault();
+    show('💬 В готовом сайте кнопка ведёт в Telegram — бронь подтверждается за минуты');
   });
 })();
 </script>
