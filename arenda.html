@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Квартиры посуточно — бронирование напрямую, без комиссий</title>
+<meta name="description" content="Квартиры посуточно: свободные даты, бронирование в один клик через Telegram, без комиссий сервисов. Фотографии, удобства, честные цены.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232E5BFF'/%3E%3Cpath d='M7 16 16 8l9 8 M10 14v9h12v-9' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F7FB; --bg-2:#EBEEF7; --ink:#101828; --soft:#667085;
+    --blue:#2E5BFF; --blue-dark:#1E44CC; --green:#12B76A; --line:#E4E7EF; --white:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--blue);color:#fff}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(246,247,251,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+  .head-in{display:flex;align-items:center;justify-content:space-between;gap:14px;height:62px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo-m{width:36px;height:36px;border-radius:10px;background:var(--blue);display:grid;place-items:center;flex:none}
+  .logo b{font-weight:800;font-size:17px}
+  .logo small{display:block;font-size:9.5px;letter-spacing:.16em;color:var(--soft);text-transform:uppercase}
+  .cta{background:var(--blue);color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:10px 18px;border-radius:10px;transition:all .18s;position:relative;overflow:hidden}
+  .cta::after{content:"";position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite}
+  @keyframes shine{0%,60%{left:-120%}90%,100%{left:130%}}
+  .cta:hover{background:var(--blue-dark);transform:translateY(-1px)}
+  @media(prefers-reduced-motion:reduce){.cta::after{display:none}}
+
+  .hero{padding:56px 0 48px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--bg-2),var(--bg))}
+  .kick{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+  h1{font-weight:800;font-size:clamp(28px,4.8vw,46px);line-height:1.15;max-width:680px}
+  h1 span{color:var(--blue)}
+  .hero-sub{margin-top:16px;color:var(--soft);max-width:560px;font-size:clamp(15.5px,1.7vw,18px)}
+  /* поисковая строка */
+  .searchbar{margin-top:26px;background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 34px rgba(16,24,40,.08);display:grid;grid-template-columns:1.2fr 1.2fr 1fr auto;gap:1px;overflow:hidden;max-width:820px}
+  .sb{padding:14px 18px;background:var(--white)}
+  .sb label{display:block;font-size:10.5px;font-weight:800;letter-spacing:.1em;color:var(--soft);text-transform:uppercase;margin-bottom:2px}
+  .sb input{border:none;background:transparent;font-family:'Manrope';font-size:15px;font-weight:600;color:var(--ink);width:100%;padding:0}
+  .sb input:focus{outline:none}
+  .sb-go{background:var(--blue);color:#fff;border:none;font-family:'Manrope';font-weight:800;font-size:15px;padding:0 26px;cursor:pointer;transition:background .18s}
+  .sb-go:hover{background:var(--blue-dark)}
+  @media(max-width:760px){.searchbar{grid-template-columns:1fr 1fr}.sb-go{grid-column:1/-1;padding:15px}}
+
+  section{padding:56px 0}
+  .sec-k{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+  .sec-t{font-weight:800;font-size:clamp(24px,3.4vw,34px);margin-bottom:30px;line-height:1.2}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:all .22s cubic-bezier(.2,.8,.3,1);display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(16,24,40,.12)}
+  .ph{aspect-ratio:4/3;overflow:hidden;position:relative}
+  .ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .card:hover .ph img{transform:scale(1.05)}
+  .badge{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);border-radius:999px;padding:5px 12px;font-size:11.5px;font-weight:800;color:var(--blue)}
+  .badge.hot{background:var(--green);color:#fff}
+  .card .in{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .card b{font-size:16.5px;line-height:1.3}
+  .card .sub{font-size:13.5px;color:var(--soft)}
+  .card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:10px}
+  .price{font-weight:800;font-size:18px}
+  .price small{font-weight:500;font-size:12px;color:var(--soft)}
+  .book{color:var(--blue);font-weight:800;font-size:13.5px;text-decoration:none;border:1.5px solid var(--line);padding:8px 14px;border-radius:9px;transition:all .15s}
+  .book:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+  @media(max-width:900px){.cards{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.cards{grid-template-columns:1fr}}
+
+  .cal{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .cal-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+  @media(max-width:820px){.cal-grid{grid-template-columns:1fr}}
+  .cal-mock{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:0 14px 36px rgba(16,24,40,.1);padding:20px}
+  .cal-mock .cm-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .cal-mock .cm-h b{font-size:15px}
+  .cal-mock .dot-row{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center;font-size:12.5px}
+  .cal-mock .dow{color:var(--soft);font-weight:700;font-size:10.5px;margin-bottom:4px}
+  .cal-mock .d{padding:8px 0;border-radius:8px;font-weight:600}
+  .cal-mock .d.free{background:#E8F8F0;color:var(--green);cursor:pointer}
+  .cal-mock .d.busy{background:var(--bg-2);color:#B4BAC6;text-decoration:line-through}
+  .cal-mock .d.sel{background:var(--blue);color:#fff}
+  .cal-note{font-size:12px;color:var(--soft);margin-top:12px;text-align:center}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .step .n{font-weight:800;font-size:24px;color:var(--blue)}
+  .step b{display:block;font-weight:800;font-size:15.5px;margin:6px 0 4px}
+  .step span{font-size:13.5px;color:var(--soft)}
+  @media(max-width:820px){.steps{grid-template-columns:1fr}}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 34px;font-size:12.5px;color:var(--soft)}
+  .foot-in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,150%);background:var(--blue);color:#fff;font-weight:700;font-size:14px;padding:14px 24px;border-radius:12px;z-index:100;transition:transform .35s cubic-bezier(.2,.9,.3,1.2);max-width:90vw;text-align:center}
+  .toast.show{transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-in">
+    <a class="logo" href="#top">
+      <span class="logo-m"><svg width="20" height="18" viewBox="0 0 20 18"><path d="M3 10 10 4l7 6 M5 9v7h10V9" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><b>Посуточно</b><small>квартиры · ваш город</small></span>
+    </a>
+    <a class="cta" href="#kvartiry">Свободные даты</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="kick">Аренда посуточно · без комиссий</div>
+      <h1>Свободные даты видны сразу. Бронь — <span>в один клик в Telegram</span></h1>
+      <p class="hero-sub">Живой календарь занятости по каждой квартире, честные цены без наценки сервисов, хозяйка отвечает лично.</p>
+      <div class="searchbar">
+        <div class="sb"><label>Заезд</label><input type="date" id="d1"></div>
+        <div class="sb"><label>Выезд</label><input type="date" id="d2"></div>
+        <div class="sb"><label>Гостей</label><input type="number" min="1" max="6" value="2" id="gg"></div>
+        <button class="sb-go" id="goBtn">Показать</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="kvartiry">
+    <div class="wrap">
+      <div class="sec-k">Каталог</div>
+      <h2 class="sec-t">Наши квартиры</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=70" alt="Светлая студия" loading="lazy"><span class="badge hot">Свободно на выходные</span></div>
+          <div class="in"><b>Студия в центре · 28 м²</b><span class="sub">2 гостя · Wi-Fi · кухня · 5 мин до центра</span>
+            <div class="foot"><span class="price">2 400 ₽ <small>/ ночь</small></span><a class="book" href="#bron">Проверить даты</a></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=70" alt="Уютная однушка" loading="lazy"><span class="badge">Свободно</span></div>
+          <div class="in"><b>Однушка с балконом · 36 м²</b><span class="sub">2 гостя · рабочее место · парковка</span>
+            <div class="foot"><span class="price">2 900 ₽ <small>/ ночь</small></span><a class="book" href="#bron">Проверить даты</a></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=70" alt="Двушка новосёл" loading="lazy"><span class="badge">Свободно</span></div>
+          <div class="in"><b>Двушка после ремонта · 54 м²</b><span class="sub">4 гостя · 2 спальни · детская кроватка</span>
+            <div class="foot"><span class="price">3 800 ₽ <small>/ ночь</small></span><a class="book" href="#bron">Проверить даты</a></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=70" alt="Квартира с камином" loading="lazy"><span class="badge">Сутки мин. 2</span></div>
+          <div class="in"><b>Дизайнерская двушка · 47 м²</b><span class="sub">3 гостя · проектор · красивый вид</span>
+            <div class="foot"><span class="price">3 400 ₽ <small>/ ночь</small></span><a class="book" href="#bron">Проверить даты</a></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=70" alt="Квартира с кухней" loading="lazy"><span class="badge">Свободно</span></div>
+          <div class="in"><b>Однушка у парка · 32 м²</b><span class="sub">2 гостя · тихий район · манеж для ребёнка</span>
+            <div class="foot"><span class="price">2 600 ₽ <small>/ ночь</small></span><a class="book" href="#bron">Проверить даты</a></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&q=70" alt="Просторные апартаменты" loading="lazy"><span class="badge hot">Хит</span></div>
+          <div class="in"><b>Апартаменты с террасой · 60 м²</b><span class="sub">4 гостя · терраса · поздравления включены</span>
+            <div class="foot"><span class="price">4 500 ₽ <small>/ ночь</small></span><a class="book" href="#bron">Проверить даты</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cal">
+    <div class="wrap cal-grid">
+      <div>
+        <div class="sec-k">Живой календарь</div>
+        <h2 class="sec-t">Свободные даты — без «а уточните в личке»</h2>
+        <p style="color:var(--soft)">В готовом сайте сюда встраивается календарь RealtyCalendar: занятость по каждой квартире подгружается автоматически, гость видит свободные окна и бронирует, не выходя с сайта.</p>
+        <p style="margin-top:14px"><b>Для владельца:</b> брони и блокировки даты ведёте как сейчас, в своём RealtyCalendar, — сайт просто показывает их гостям.</p>
+      </div>
+      <div class="cal-mock" aria-hidden="true">
+        <div class="cm-h"><b>Студия в центре · ноябрь</b><span style="color:var(--green);font-weight:800;font-size:13px">● 12 дней свободно</span></div>
+        <div class="dot-row">
+          <span class="dow">пн</span><span class="dow">вт</span><span class="dow">ср</span><span class="dow">чт</span><span class="dow">пт</span><span class="dow">сб</span><span class="dow">вс</span>
+          <span class="d">1</span><span class="d free">2</span><span class="d free">3</span><span class="d busy">4</span><span class="d busy">5</span><span class="d free">6</span><span class="d free">7</span>
+          <span class="d free">8</span><span class="d sel">9</span><span class="d sel">10</span><span class="d free">11</span><span class="d busy">12</span><span class="d busy">13</span><span class="d busy">14</span>
+          <span class="d free">15</span><span class="d free">16</span><span class="d busy">17</span><span class="d busy">18</span><span class="d free">19</span><span class="d free">20</span><span class="d free">21</span>
+        </div>
+        <div class="cal-note">демо-календарь · в готовом сайте данные из RealtyCalendar</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bron">
+    <div class="wrap">
+      <div class="sec-k">Бронирование</div>
+      <h2 class="sec-t">Три шага до заезда</h2>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><b>Выбираете даты</b><span>Смотрите свободные окна в календаре квартиры.</span></div>
+        <div class="step"><span class="n">2</span><b>Пишете в Telegram</b><span>Кнопка ведёт прямо в чат — хозяйка подтверждает бронь за минуты.</span></div>
+        <div class="step"><span class="n">3</span><b>Заезжаете</b><span>Код замка и инструкция приходят в чат. Никаких бумажек.</span></div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+        <a class="cta" style="font-size:15px;padding:15px 28px" href="https://t.me/username" target="_blank" rel="noopener">Написать в Telegram</a>
+        <a class="book" style="font-size:15px;padding:15px 24px" href="tel:+79000000000">☎ +7 900 000-00-00</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© Квартиры посуточно</span>
+    <span>Демонстрационный макет: фотографии — стоковые, ваши подставим при наполнении</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  'use strict';
+  var toast = document.getElementById('toast'), t;
+  function show(m){ toast.textContent = m; toast.classList.add('show'); clearTimeout(t); t = setTimeout(function(){ toast.classList.remove('show'); }, 4200); }
+  document.getElementById('goBtn').addEventListener('click', function(){
+    show('📅 В готовом сайте здесь — живые даты из RealtyCalendar и свободные квартиры на ваш период');
+  });
+})();
+</script>
+</body>
+</html>
