@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Правовой стандарт — юристы: семья, недвижимость, банкротство</title>
+<meta name="description" content="Юридическая помощь: семейные споры, недвижимость, банкротство физлиц, наследство, арбитраж. Первая консультация бесплатно.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2314213D'/%3E%3Cpath d='M16 6l9 4v6q0 7-9 10Q7 23 7 16v-6z' fill='none' stroke='%23C9A227' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M16 10v11 M12 14h8' stroke='%23C9A227' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBFBF8; --bg-2:#F1F0EA; --ink:#14213D; --soft:#6B7286;
+    --navy:#14213D; --gold:#C9A227; --gold-dark:#A8861B; --line:#E3E2DA; --white:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',sans-serif;font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--gold);color:#fff}
+  .serif{font-family:'Cormorant',serif}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(251,251,248,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+  .head-in{display:flex;align-items:center;justify-content:space-between;gap:14px;height:66px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .logo-m{width:40px;height:40px;border-radius:8px;background:var(--navy);display:grid;place-items:center;flex:none}
+  .logo b{font-family:'Cormorant';font-weight:700;font-size:21px;letter-spacing:.01em}
+  .logo small{display:block;font-family:'Manrope';font-size:9px;letter-spacing:.22em;color:var(--soft);text-transform:uppercase}
+  .head-tel{font-weight:700;font-size:15px;text-decoration:none;color:var(--ink);white-space:nowrap}
+  .cta{background:var(--navy);color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:11px 20px;border-radius:6px;transition:all .18s;border-bottom:2px solid var(--gold)}
+  .cta:hover{background:#0D1730;transform:translateY(-1px)}
+  @media(max-width:640px){.head-tel{display:none}}
+
+  .hero{padding:72px 0 64px;border-bottom:1px solid var(--line);position:relative}
+  .hero::after{content:"";position:absolute;right:6%;top:12%;width:200px;height:200px;border:1.5px solid var(--gold);opacity:.35;transform:rotate(45deg);pointer-events:none}
+  .kick{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:18px}
+  h1{font-family:'Cormorant';font-weight:700;font-size:clamp(32px,5.4vw,58px);line-height:1.1;max-width:720px}
+  h1 em{font-style:italic;color:var(--gold-dark)}
+  .hero-sub{margin-top:20px;color:var(--soft);font-size:clamp(16px,1.8vw,19px);max-width:560px}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .btn{font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:6px;transition:all .18s}
+  .btn-fill{background:var(--navy);color:#fff;border-bottom:2px solid var(--gold)}
+  .btn-fill:hover{background:#0D1730;transform:translateY(-2px)}
+  .btn-line{border:1.5px solid var(--line);color:var(--ink);background:var(--white)}
+  .btn-line:hover{border-color:var(--gold);color:var(--gold-dark)}
+  .hero-stats{display:flex;flex-wrap:wrap;gap:10px 40px;margin-top:34px}
+  .stat .n{font-family:'Cormorant';font-weight:700;font-size:32px;color:var(--gold-dark);line-height:1}
+  .stat .t{font-size:12.5px;color:var(--soft);font-weight:600;margin-top:2px}
+
+  section{padding:62px 0}
+  .sec-k{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:10px}
+  .sec-t{font-family:'Cormorant';font-weight:700;font-size:clamp(26px,3.6vw,40px);margin-bottom:36px;line-height:1.15}
+
+  .areas{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .area{background:var(--bg);padding:26px;transition:background .2s}
+  .area:hover{background:var(--white)}
+  .area b{font-family:'Cormorant';font-weight:700;font-size:21px;display:block;margin-bottom:7px}
+  .area p{font-size:14px;color:var(--soft)}
+  .area .from{display:inline-block;margin-top:12px;font-weight:800;font-size:15px;color:var(--gold-dark)}
+  @media(max-width:860px){.areas{grid-template-columns:1fr}}
+
+  .how{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:24px;border-top:3px solid var(--gold)}
+  .step .n{font-family:'Cormorant';font-weight:700;font-size:28px;color:var(--gold-dark)}
+  .step b{display:block;font-weight:800;font-size:15.5px;margin:6px 0 5px}
+  .step span{font-size:14px;color:var(--soft)}
+  @media(max-width:820px){.steps{grid-template-columns:1fr}}
+
+  .quote{max-width:760px}
+  .quote p{font-family:'Cormorant';font-style:italic;font-size:clamp(20px,2.6vw,28px);line-height:1.4}
+  .quote p::before{content:"« "}.quote p::after{content:" »"}
+  .quote .by{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-top:14px}
+
+  .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  @media(max-width:820px){.book-grid{grid-template-columns:1fr}}
+  .big-tel{font-family:'Cormorant';font-weight:700;font-size:clamp(26px,4.2vw,40px);color:var(--navy);text-decoration:none;display:inline-block;margin-bottom:16px}
+  .rows{display:flex;flex-direction:column;gap:11px;font-size:15px}
+  .rows .r{display:flex;gap:12px;align-items:baseline}
+  .rows .k{font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--soft);width:112px;flex:none;text-transform:uppercase}
+  form{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:26px;display:flex;flex-direction:column;gap:14px;border-top:3px solid var(--gold)}
+  .f label{display:block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+  .f input,.f select,.f textarea{width:100%;border:1.5px solid var(--line);border-radius:6px;padding:13px 15px;font-family:'Manrope';font-size:16px;color:var(--ink);background:var(--bg)}
+  .f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--gold)}
+  .f textarea{min-height:70px;resize:vertical}
+  form .btn{justify-content:center;width:100%}
+  .fine{font-size:11.5px;color:var(--soft)}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 34px;font-size:12.5px;color:var(--soft)}
+  .foot-in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,150%);background:var(--navy);color:#fff;font-weight:700;font-size:14px;padding:15px 26px;border-radius:6px;z-index:100;transition:transform .35s cubic-bezier(.2,.9,.3,1.2);max-width:90vw;text-align:center;border-top:2px solid var(--gold)}
+  .toast.show{transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-in">
+    <a class="logo" href="#top">
+      <span class="logo-m"><svg width="20" height="20" viewBox="0 0 20 20"><path d='M10 2l7 3v4.5q0 5.5-7 8q-7-2.5-7-8V5z' fill='none' stroke='#C9A227' stroke-width='1.6' stroke-linejoin='round'/><path d='M10 5.5v8 M7 9h6' stroke='#C9A227' stroke-width='1.3'/></svg></span>
+      <span><b>Правовой стандарт</b><small>юридическая практика</small></span>
+    </a>
+    <a class="head-tel" href="tel:+79000000000">+7 900 000-00-00</a>
+    <a class="cta" href="#konsult">Бесплатная консультация</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="kick">Юристы · ваш город и область</div>
+      <h1>Говорим правду о ваших шансах <em>до того</em>, как вы заплатите</h1>
+      <p class="hero-sub">Если дело бесперспективно — скажем прямо и бесплатно. Если перспективно — ведём до результата с фиксацией стоимости в договоре.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-fill" href="#konsult">Бесплатная консультация</a>
+        <a class="btn btn-line" href="#areas">Практики и цены</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="n">14 лет</div><div class="t">практики в судах</div></div>
+        <div class="stat"><div class="n">87%</div><div class="t">дел выиграно или урегулировано</div></div>
+        <div class="stat"><div class="n">0 ₽</div><div class="t">первая консультация</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="areas">
+    <div class="wrap">
+      <div class="sec-k">Практики</div>
+      <h2 class="sec-t">С чем приходят к нам</h2>
+      <div class="areas">
+        <div class="area"><b>Недвижимость</b><p>Сделки, споры с застройщиками, признание права собственности, перепланировки.</p><span class="from">от 15 000 ₽</span></div>
+        <div class="area"><b>Семейные споры</b><p>Раздел имущества, алименты, определение места жительства детей — без войны, если возможно.</p><span class="from">от 12 000 ₽</span></div>
+        <div class="area"><b>Банкротство физлиц</b><p>Списание долгов через суд под ключ: от заявления до финального заседания.</p><span class="from">от 8 000 ₽/мес</span></div>
+        <div class="area"><b>Наследство</b><p>Вступление, оспаривание, восстановление сроков, раздел между наследниками.</p><span class="from">от 10 000 ₽</span></div>
+        <div class="area"><b>Арбитраж и договоры</b><p>Споры между бизнесом, взыскание долгов, составление договоров «не пробиваемых».</p><span class="from">от 25 000 ₽</span></div>
+        <div class="area"><b>Защита потребителей</b><p>Возврат денег за товары и услуги, споры с клиниками и застройщиками.</p><span class="from">от 9 000 ₽</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <div class="sec-k">Как мы работаем</div>
+      <h2 class="sec-t">Три шага без сюрпризов</h2>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><b>Консультация — 0 ₽</b><span>Разбираем документы, честно говорим о шансах и рисках. Решение — ваше.</span></div>
+        <div class="step"><span class="n">2</span><b>Договор с ценой</b><span>Стоимость и этапы фиксируются письменно. Допрасходы согласуем заранее.</span></div>
+        <div class="step"><span class="n">3</span><b>Ведём до результата</b><span>Вы получаете отчёт по каждому заседанию. Присутствовать в суде не обязательно.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-k">Принцип</div>
+      <h2 class="sec-t">Дороже всего стоит тишина юриста</h2>
+      <div class="quote">
+        <p>Если ваши шансы — 30%, мы скажем «30%» и объясним почему. Обещать победу за деньги — не работа, а приманка.</p>
+        <div class="by">— принцип практики, с первого дня работы</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="konsult" style="background:var(--bg-2);border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-k">Консультация</div>
+      <h2 class="sec-t">Опишите ситуацию — скажем, что делать</h2>
+      <div class="book-grid">
+        <div>
+          <a class="big-tel" href="tel:+79000000000">+7 900 000-00-00</a>
+          <div class="rows">
+            <div class="r"><span class="k">Часы</span><span>пн–пт · 9:00–19:00, сб — по записи</span></div>
+            <div class="r"><span class="k">Формат</span><span>офис · телефон · видеосвязь</span></div>
+            <div class="r"><span class="k">Документы</span><span>приносите всё, что есть — разберём на месте</span></div>
+            <div class="r"><span class="k">Конфиденциально</span><span>юрист тайны соблюдаем, даже если вы не наш клиент</span></div>
+          </div>
+        </div>
+        <form id="konsForm">
+          <div class="f"><label for="kn">Ваше имя</label><input id="kn" placeholder="Как к вам обращаться" required></div>
+          <div class="f"><label for="kp">Телефон</label><input id="kp" type="tel" placeholder="+7 ___ ___-__-__" required></div>
+          <div class="f"><label for="kq">Вопрос</label>
+            <select id="kq"><option>Недвижимость</option><option>Семейный спор</option><option>Банкротство</option><option>Наследство</option><option>Арбитраж / бизнес</option><option>Защита потребителя</option><option>Другое</option></select>
+          </div>
+          <button class="btn btn-fill" type="submit">Записаться на консультацию</button>
+          <p class="fine">Юрист перезвонит в рабочие часы. Кратко опишите ситуацию — подготовимся к звонку. Конфиденциально.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© «Правовой стандарт» · юридическая практика</span>
+    <span>Демонстрационный макет — название, телефоны и цифры впишем ваши при наполнении</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  'use strict';
+  var toast = document.getElementById('toast'), t;
+  function show(m){ toast.textContent = m; toast.classList.add('show'); clearTimeout(t); t = setTimeout(function(){ toast.classList.remove('show'); }, 4200); }
+  document.getElementById('konsForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var n = document.getElementById('kn').value.trim(), p = document.getElementById('kp').value.trim();
+    if(!n || !p){ show('⚠ Впишите имя и телефон — юрист перезвонит с подготовкой'); return; }
+    this.reset();
+    show('✓ ' + n + ', заявка принята. Юрист перезвонит в рабочие часы — конфиденциально.');
+  });
+})();
+</script>
+</body>
+</html>
